@@ -1,20 +1,50 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Bewizor Platform
+-----
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+![Build](https://github.com/xebia-os/spring-boot-react-maven-starter/workflows/spring-boot-react-maven-starter%20CI/badge.svg)
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+This is a multi-module Spring Boot Apache Maven application with good defaults. 
+## Running the full application
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+You can build the package as a single artifact by running the `./mvnw clean install`.
+Next, you can run the application by executing:
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+```bash
+$ java -jar api/target/bewizor-api-0.1.0-SNAPSHOT.jar
+```
+
+The application will be accessible at `http://localhost:8080`.
+
+
+## Running Bewizor API for development mode
+
+There are multiple ways to run the backend. For development, you can use your favorite IDE and run the
+`com.bewizor.Application`. As soon as your code compiles, Spring Boot DevTools will reload the code.
+
+You can also run the application using Maven.
+
+```bash
+$ cd api
+$  ../mvnw spring-boot:run
+```
+## Docker Setup
+
+To build the docker images and start the containers using Docker Compose run the following command. 
+This will work in the *nix systems.
+
+```
+$ sh docker.sh
+```
+
+You can view running docker containers by executing following command.
+
+```
+$ docker ps
+``` 
+
+To stop and remove all docker container you have to run following command. 
+This command should be run from project root.
+
+```
+$ docker-compose stop && docker-compose rm --force
+``` 

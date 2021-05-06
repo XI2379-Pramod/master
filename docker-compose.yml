@@ -1,12 +1,17 @@
 version: "3"
 services:
-  ui:
-    image: com.xebia.starters/spring-boot-react-starter-ui
-    ports:
-      - "80:80"
-    links:
-      - api
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
   api:
-    image: com.xebia.starters/spring-boot-react-starter-api
+    image: com.bewizor/bewizorr-api
+    links:
+      - db
     ports:
       - "8080:8080"

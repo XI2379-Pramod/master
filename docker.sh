@@ -2,7 +2,7 @@
 set -e
 
 echo "Building Bewizor api docker image..."
-cd ./api
+cd ../api
 docker build -t com.bewizor/bewizorr-api .
 echo "Built Bewizor api docker image..."
 
